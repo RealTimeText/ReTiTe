@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osman Kemal HAZIR - Türk Devletleri Bilgileri</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #e8f5e9; /* Açık yeşil arka plan */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s; /* Renk geçişleri için */
+        }
+        body.dark {
+            background-color: #121212; /* Karanlık tema arka plan */
+            color: #e0e0e0; /* Karanlık tema yazı rengi */
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .page {
+            display: none;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s;
+        }
+        body.dark .page {
+            background-color: #1f1f1f; /* Karanlık tema sayfa arka plan */
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Sağ alt köşe butonları */
+        .time-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .time-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .time-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+    <script>
+        let currentPage = 1; // Aktif sayfa
+        let isDarkMode = false; // Karanlık mod
+
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach((page) => {
+                page.style.display = 'none';
+            });
+            document.getElementById('page' + pageNumber).style.display = 'block';
+        }
+
+        function nextPage() {
+            if (currentPage < 6) { // Sayfa sayısını kontrol et
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('dark', isDarkMode);
+        }
+
+        window.onload = function() {
+            showPage(1); // Sayfa yüklendiğinde ilk sayfayı göster
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Osman Kemal HAZIR</h1>
+    <h2>Türk Devletleri Hakkında Bilgiler</h2>
+</header>
+
+<nav>
+    <a onclick="showPage(1)">Türkiye 🇹🇷</a>
+    <a onclick="showPage(2)">Azerbaycan 🇦🇿</a>
+    <a onclick="showPage(3)">Kırgızistan 🇰🇬</a>
+    <a onclick="showPage(4)">Kazakhstan 🇰🇿</a>
+    <a onclick="showPage(5)">Özbekistan 🇺🇿</a>
+    <a onclick="showPage(6)">Türkmenistan 🇹🇲</a>
+</nav>
+
+<div id="page1" class="page">
+    <h3>Türkiye 🇹🇷</h3>
+    <p>Türkiye, hem Asya hem de Avrupa'da yer alan bir ülkedir. Başkenti Ankara'dır. 🏛️</p>
+    <p>Resmi dil: Türkçe. 🗣️</p>
+    <p>Para birimi: Türk Lirası (₺). 💰</p>
+    <p>Ülkenin en ünlü yemekleri: kebap, baklava, mantı. 🍽️</p>
+    <p>Türk bayrağı: Kırmızı zemin üzerine beyaz ay-yıldız. 🇹🇷</p>
+</div>
+
+<div id="page2" class="page">
+    <h3>Azerbaycan 🇦🇿</h3>
+    <p>Azerbaycan, Kafkasya'da bulunan bir ülkedir. Başkenti Bakü'dür. 🏙️</p>
+    <p>Resmi dil: Azerice. 🗣️</p>
+    <p>Para birimi: Azerbaycan Manatı (₼). 💰</p>
+    <p>Geleneksel yemeği: Plov. 🍚</p>
+    <p>Azerbaycan bayrağı: Mavi, kırmızı ve yeşil renklerden oluşur. 🇦🇿</p>
+</div>
+
+<div id="page3" class="page">
+    <h3>Kırgızistan 🇰🇬</h3>
+    <p>Kırgızistan, Orta Asya'da yer alan bir ülkedir. Başkenti Bişkek'tir. 🏙️</p>
+    <p>Resmi dil: Kırgızca. 🗣️</p>
+    <p>Para birimi: Kırgız Somu (с). 💰</p>
+    <p>Doğal güzellikleri: Dağlar ve göller. 🏞️</p>
+    <p>Kırgız bayrağı: Kırmızı zemin üzerine sarı güneş. 🇰🇬</p>
+</div>
+
+<div id="page4" class="page">
+    <h3>Kazakhstan 🇰🇿</h3>
+    <p>Kazakistan, büyük bir Orta Asya ülkesidir. Başkenti Nur-Sultan'dır. 🏙️</p>
+    <p>Resmi dil: Kazakça. 🗣️</p>
+    <p>Para birimi: Kazak Tengesi (₸). 💰</p>
+    <p>Doğal kaynakları: Petrol ve gaz. ⛽</p>
+    <p>Kazak bayrağı: Mavi zemin üzerine sarı güneş ve kartal. 🇰🇿</p>
+</div>
+
+<div id="page5" class="page">
+    <h3>Özbekistan 🇺🇿</h3>
+    <p>Özbekistan, İpek Yolu üzerinde yer alan bir ülkedir. Başkenti Taşkent'tir. 🏙️</p>
+    <p>Resmi dil: Özbekçe. 🗣️</p>
+    <p>Para birimi: Özbek Somu (с). 💰</p>
+    <p>Geleneksel yemeği: Plov ve somsa. 🍛</p>
+    <p>Özbek bayrağı: Mavi, beyaz ve yeşil renklerden oluşur. 🇺🇿</p>
+</div>
+
+<div id="page6" class="page">
+    <h3>Türkmenistan 🇹🇲</h3>
+    <p>Türkmenistan, Orta Asya'da yer alan bir ülkedir. Başkenti Aşkabat'tır. 🏙️</p>
+    <p>Resmi dil: Türkmence. 🗣️</p>
+    <p>Para birimi: Türkmenistan Manatı (T). 💰</p>
+    <p>Doğal zenginlikleri: Doğalgaz. ⛽</p>
+    <p>Türkmen bayrağı: Yeşil zemin üzerine beyaz ornamentler. 🇹🇲</p>
+</div>
+
+<footer>
+    <p>Bu sayfa, Türk devletleri hakkında bilgiler sunmaktadır.</p>
+</footer>
+
+<div class="time-buttons">
+    <button class="time-button
